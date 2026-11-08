@@ -1,0 +1,402 @@
+{
+  "id": "gongitsune",
+  "title": "ごん狐",
+  "author": "新美南吉",
+  "source_url": "https://www.aozora.gr.jp/cards/000121/card628.html",
+  "source_credit": "青空文庫／入力：林裕司、校正：浜野智",
+  "audio_file": "narration.wav",
+  "voice_name": "ずんだもん / あまあま",
+  "emotion_mode": "wrime_reader",
+  "generated_at_utc": "2026-11-08T09:15:59.318462+00:00",
+  "duration_sec": 66.005333,
+  "segments": [
+    {
+      "id": "s0001",
+      "text": "これは、私が小さいときに、村の茂平というおじいさんからきいたお話です。",
+      "start_sec": 0.0,
+      "end_sec": 7.274667,
+      "color": "#A3A9A9",
+      "reader_emotions": {
+        "joy": 0.374565,
+        "sadness": 0.050434,
+        "anticipation": 0.086879,
+        "surprise": 0.440413,
+        "anger": 0.0,
+        "fear": 0.156387,
+        "disgust": 0.046177,
+        "trust": 0.101362
+      },
+      "writer_emotions": {
+        "joy": 0.749395,
+        "sadness": 0.3717,
+        "anticipation": 0.277466,
+        "surprise": 0.733602,
+        "anger": 0.014319,
+        "fear": 0.105713,
+        "disgust": 0.111398,
+        "trust": 0.630959
+      },
+      "reader_emotions_raw": {
+        "joy": 0.374565,
+        "sadness": 0.050434,
+        "anticipation": 0.086879,
+        "surprise": 0.440413,
+        "anger": -0.063901,
+        "fear": 0.156387,
+        "disgust": 0.046177,
+        "trust": 0.101362
+      },
+      "writer_emotions_raw": {
+        "joy": 0.749395,
+        "sadness": 0.3717,
+        "anticipation": 0.277466,
+        "surprise": 0.733602,
+        "anger": 0.014319,
+        "fear": 0.105713,
+        "disgust": 0.111398,
+        "trust": 0.630959
+      },
+      "primary_emotion": "surprise"
+    },
+    {
+      "id": "s0002",
+      "text": "むかしは、私たちの村のちかくの、中山というところに小さなお城があって、中山さまというおとのさまが、おられたそうです。",
+      "start_sec": 7.274667,
+      "end_sec": 18.901333,
+      "color": "#A7AAA7",
+      "reader_emotions": {
+        "joy": 0.357042,
+        "sadness": 0.142047,
+        "anticipation": 0.161451,
+        "surprise": 0.550263,
+        "anger": 0.04572,
+        "fear": 0.136352,
+        "disgust": 0.0,
+        "trust": 0.076288
+      },
+      "writer_emotions": {
+        "joy": 0.773367,
+        "sadness": 0.3729,
+        "anticipation": 0.273861,
+        "surprise": 0.813306,
+        "anger": 0.0,
+        "fear": 0.007074,
+        "disgust": 0.010475,
+        "trust": 0.43612
+      },
+      "reader_emotions_raw": {
+        "joy": 0.357042,
+        "sadness": 0.142047,
+        "anticipation": 0.161451,
+        "surprise": 0.550263,
+        "anger": 0.04572,
+        "fear": 0.136352,
+        "disgust": -0.034934,
+        "trust": 0.076288
+      },
+      "writer_emotions_raw": {
+        "joy": 0.773367,
+        "sadness": 0.3729,
+        "anticipation": 0.273861,
+        "surprise": 0.813306,
+        "anger": -0.000313,
+        "fear": 0.007074,
+        "disgust": 0.010475,
+        "trust": 0.43612
+      },
+      "primary_emotion": "surprise"
+    },
+    {
+      "id": "s0003",
+      "text": "その中山から、少しはなれた山の中に、「ごん狐」という狐がいました。",
+      "start_sec": 18.901333,
+      "end_sec": 26.154667,
+      "color": "#AAABA5",
+      "reader_emotions": {
+        "joy": 0.404453,
+        "sadness": 0.005663,
+        "anticipation": 0.09266,
+        "surprise": 0.673061,
+        "anger": 0.0,
+        "fear": 0.306198,
+        "disgust": 0.026507,
+        "trust": 0.080514
+      },
+      "writer_emotions": {
+        "joy": 0.81351,
+        "sadness": 0.350635,
+        "anticipation": 0.243297,
+        "surprise": 1.015273,
+        "anger": 0.0,
+        "fear": 0.087684,
+        "disgust": 0.026063,
+        "trust": 0.446294
+      },
+      "reader_emotions_raw": {
+        "joy": 0.404453,
+        "sadness": 0.005663,
+        "anticipation": 0.09266,
+        "surprise": 0.673061,
+        "anger": -0.079605,
+        "fear": 0.306198,
+        "disgust": 0.026507,
+        "trust": 0.080514
+      },
+      "writer_emotions_raw": {
+        "joy": 0.81351,
+        "sadness": 0.350635,
+        "anticipation": 0.243297,
+        "surprise": 1.015273,
+        "anger": -0.063265,
+        "fear": 0.087684,
+        "disgust": 0.026063,
+        "trust": 0.446294
+      },
+      "primary_emotion": "surprise"
+    },
+    {
+      "id": "s0004",
+      "text": "ごんは、一人ぼっちの小狐で、しだの一ぱいしげった森の中に穴をほって住んでいました。",
+      "start_sec": 26.154667,
+      "end_sec": 34.250667,
+      "color": "#A3AAA3",
+      "reader_emotions": {
+        "joy": 0.465655,
+        "sadness": 0.185022,
+        "anticipation": 0.0,
+        "surprise": 0.341458,
+        "anger": 0.0,
+        "fear": 0.27382,
+        "disgust": 0.027002,
+        "trust": 0.072742
+      },
+      "writer_emotions": {
+        "joy": 0.792409,
+        "sadness": 0.411336,
+        "anticipation": 0.162219,
+        "surprise": 0.476628,
+        "anger": 0.0,
+        "fear": 0.035346,
+        "disgust": 0.053534,
+        "trust": 0.245732
+      },
+      "reader_emotions_raw": {
+        "joy": 0.465655,
+        "sadness": 0.185022,
+        "anticipation": -0.002031,
+        "surprise": 0.341458,
+        "anger": -0.071461,
+        "fear": 0.27382,
+        "disgust": 0.027002,
+        "trust": 0.072742
+      },
+      "writer_emotions_raw": {
+        "joy": 0.792409,
+        "sadness": 0.411336,
+        "anticipation": 0.162219,
+        "surprise": 0.476628,
+        "anger": -0.044568,
+        "fear": 0.035346,
+        "disgust": 0.053534,
+        "trust": 0.245732
+      },
+      "primary_emotion": "joy"
+    },
+    {
+      "id": "s0005",
+      "text": "そして、夜でも昼でも、あたりの村へ出てきて、いたずらばかりしました。",
+      "start_sec": 34.250667,
+      "end_sec": 40.906667,
+      "color": "#8C93A7",
+      "reader_emotions": {
+        "joy": 0.077877,
+        "sadness": 0.318545,
+        "anticipation": 0.090215,
+        "surprise": 0.441148,
+        "anger": 0.085696,
+        "fear": 0.825428,
+        "disgust": 0.474603,
+        "trust": 0.0
+      },
+      "writer_emotions": {
+        "joy": 0.50792,
+        "sadness": 0.938623,
+        "anticipation": 0.187216,
+        "surprise": 0.712711,
+        "anger": 0.434135,
+        "fear": 0.748392,
+        "disgust": 0.78857,
+        "trust": 0.098787
+      },
+      "reader_emotions_raw": {
+        "joy": 0.077877,
+        "sadness": 0.318545,
+        "anticipation": 0.090215,
+        "surprise": 0.441148,
+        "anger": 0.085696,
+        "fear": 0.825428,
+        "disgust": 0.474603,
+        "trust": -0.097191
+      },
+      "writer_emotions_raw": {
+        "joy": 0.50792,
+        "sadness": 0.938623,
+        "anticipation": 0.187216,
+        "surprise": 0.712711,
+        "anger": 0.434135,
+        "fear": 0.748392,
+        "disgust": 0.78857,
+        "trust": 0.098787
+      },
+      "primary_emotion": "fear"
+    },
+    {
+      "id": "s0006",
+      "text": "はたけへ入って芋をほりちらしたり、菜種がらの、ほしてあるのへ火をつけたり、百姓家の裏手につるしてあるとんがらしをむしりとって、いったり、いろんなことをしました。",
+      "start_sec": 40.906667,
+      "end_sec": 55.658667,
+      "color": "#A2A5A6",
+      "reader_emotions": {
+        "joy": 0.286138,
+        "sadness": 0.219746,
+        "anticipation": 0.4711,
+        "surprise": 0.376832,
+        "anger": 0.019152,
+        "fear": 0.239254,
+        "disgust": 0.104879,
+        "trust": 0.027276
+      },
+      "writer_emotions": {
+        "joy": 0.842467,
+        "sadness": 0.488562,
+        "anticipation": 0.546392,
+        "surprise": 0.461183,
+        "anger": 0.160903,
+        "fear": 0.208433,
+        "disgust": 0.381875,
+        "trust": 0.296585
+      },
+      "reader_emotions_raw": {
+        "joy": 0.286138,
+        "sadness": 0.219746,
+        "anticipation": 0.4711,
+        "surprise": 0.376832,
+        "anger": 0.019152,
+        "fear": 0.239254,
+        "disgust": 0.104879,
+        "trust": 0.027276
+      },
+      "writer_emotions_raw": {
+        "joy": 0.842467,
+        "sadness": 0.488562,
+        "anticipation": 0.546392,
+        "surprise": 0.461183,
+        "anger": 0.160903,
+        "fear": 0.208433,
+        "disgust": 0.381875,
+        "trust": 0.296585
+      },
+      "primary_emotion": "anticipation"
+    },
+    {
+      "id": "s0007",
+      "text": "或秋のことでした。",
+      "start_sec": 55.658667,
+      "end_sec": 57.525333,
+      "color": "#A0A8AB",
+      "reader_emotions": {
+        "joy": 0.18718,
+        "sadness": 0.187465,
+        "anticipation": 0.192677,
+        "surprise": 0.346157,
+        "anger": 0.073854,
+        "fear": 0.028486,
+        "disgust": 0.044204,
+        "trust": 0.023032
+      },
+      "writer_emotions": {
+        "joy": 0.508769,
+        "sadness": 0.620222,
+        "anticipation": 0.398626,
+        "surprise": 0.572225,
+        "anger": 0.130522,
+        "fear": 0.120943,
+        "disgust": 0.168292,
+        "trust": 0.139255
+      },
+      "reader_emotions_raw": {
+        "joy": 0.18718,
+        "sadness": 0.187465,
+        "anticipation": 0.192677,
+        "surprise": 0.346157,
+        "anger": 0.073854,
+        "fear": 0.028486,
+        "disgust": 0.044204,
+        "trust": 0.023032
+      },
+      "writer_emotions_raw": {
+        "joy": 0.508769,
+        "sadness": 0.620222,
+        "anticipation": 0.398626,
+        "surprise": 0.572225,
+        "anger": 0.130522,
+        "fear": 0.120943,
+        "disgust": 0.168292,
+        "trust": 0.139255
+      },
+      "primary_emotion": "surprise"
+    },
+    {
+      "id": "s0008",
+      "text": "二、三日雨がふりつづいたその間、ごんは、外へも出られなくて穴の中にしゃがんでいました。",
+      "start_sec": 57.525333,
+      "end_sec": 66.005333,
+      "color": "#869BB0",
+      "reader_emotions": {
+        "joy": 0.015682,
+        "sadness": 0.927315,
+        "anticipation": 0.0,
+        "surprise": 0.405438,
+        "anger": 0.0,
+        "fear": 0.73575,
+        "disgust": 0.323676,
+        "trust": 0.060245
+      },
+      "writer_emotions": {
+        "joy": 0.100512,
+        "sadness": 1.680241,
+        "anticipation": 0.0,
+        "surprise": 0.628397,
+        "anger": 0.216249,
+        "fear": 0.68888,
+        "disgust": 0.605263,
+        "trust": 0.205228
+      },
+      "reader_emotions_raw": {
+        "joy": 0.015682,
+        "sadness": 0.927315,
+        "anticipation": -0.014032,
+        "surprise": 0.405438,
+        "anger": -0.03896,
+        "fear": 0.73575,
+        "disgust": 0.323676,
+        "trust": 0.060245
+      },
+      "writer_emotions_raw": {
+        "joy": 0.100512,
+        "sadness": 1.680241,
+        "anticipation": -0.014782,
+        "surprise": 0.628397,
+        "anger": 0.216249,
+        "fear": 0.68888,
+        "disgust": 0.605263,
+        "trust": 0.205228
+      },
+      "primary_emotion": "sadness"
+    }
+  ],
+  "emotion_model": "patrickramos/bert-base-japanese-v2-wrime-fine-tune",
+  "emotion_model_note": "WRIME reader scores estimate how observers interpret the writer emotion of SNS posts. These are not measured emotions of a novel reader or its characters.",
+  "emotion_scale": "regression: raw values retained; display values clipped to [0,3]",
+  "emotion_color_scheme": "dominant reader emotion, mixed with neutral by intensity"
+}
