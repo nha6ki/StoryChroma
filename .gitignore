@@ -7,3 +7,10 @@ __pycache__/
 data/processed/
 node_modules/
 dist/
+
+# Local development backups
+/backup-mvp/
+/pipeline/*.bak
+/web/src/*.before-wrime
+/web/public/stories/*/story.before-wrime.json
+/web/public/stories/*/story.emotions.json
