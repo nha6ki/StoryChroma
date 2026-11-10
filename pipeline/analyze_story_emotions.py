@@ -16,6 +16,7 @@ import sys
 from pathlib import Path
 
 MODEL_NAME = 'patrickramos/bert-base-japanese-v2-wrime-fine-tune'
+MODEL_REVISION = '1f391822d6a11ccaacfff11f89935c387ffe7197'
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 STORY_DIR = PROJECT_ROOT / 'web' / 'public' / 'stories' / 'gongitsune'
 DEFAULT_INPUT = STORY_DIR / 'story.json'
@@ -84,8 +85,8 @@ def main() -> int:
     from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
     print(f'モデルを読み込んでいます: {MODEL_NAME}', flush=True)
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-    model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, revision=MODEL_REVISION)
+    model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME, revision=MODEL_REVISION)
     model.eval()
     labels = {int(k): v for k, v in model.config.id2label.items()}
     expected = {f'{perspective}_{emotion}' for perspective in ('writer', 'reader') for emotion in EMOTIONS}
@@ -120,6 +121,7 @@ def main() -> int:
 
     story['emotion_mode'] = 'wrime_reader'
     story['emotion_model'] = MODEL_NAME
+    story['emotion_model_revision'] = MODEL_REVISION
     story['emotion_model_note'] = (
         'WRIME reader scores estimate how observers interpret the writer emotion of SNS posts. '
         'These are not measured emotions of a novel reader or its characters.'

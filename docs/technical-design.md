@@ -211,9 +211,15 @@ The heatmap, dominant track, and sentence bars should not be described as visual
 
 ## 9. Reproducibility and limits
 
+### Model revision pinning
+
+Future inference runs are configured to use model revision `1f391822d6a11ccaacfff11f89935c387ffe7197` for both the tokenizer and model weights. The corresponding snapshot was found in the local Hugging Face cache, including `model.safetensors`.
+
+This revision is a verified locally cached candidate, not a confirmed historical revision for the existing 168-sentence emotion data. Numerical reproducibility has not been established by rerunning inference.
+
 The repository includes the final audio and JSON, so running the existing browser experience needs Node.js and npm but **does not** require executing BERT or VOICEVOX locally.
 
-The generation pipeline requires additional components, including the pinned Python packages in `pipeline/requirements.txt`, FFmpeg, a running VOICEVOX ENGINE, and access to the text and model sources. The recorded local environment used Python 3.14.4, PyTorch 2.15.0, Transformers 5.22.2, FFmpeg 8.0.1, and VOICEVOX ENGINE 0.26.1. Package-version recording **does not** establish bitwise-reproducible output. In particular, the model repository revision and complete speech-generation settings have not been verified as pinned in source control. The existing analyzed and final JSON artifacts have been matched, but their historical promotion command has not been recovered.
+The generation pipeline requires additional components, including the pinned Python packages in `pipeline/requirements.txt`, FFmpeg, a running VOICEVOX ENGINE, and access to the text and model sources. The recorded local environment used Python 3.14.4, PyTorch 2.15.0, Transformers 5.22.2, FFmpeg 8.0.1, and VOICEVOX ENGINE 0.26.1. Package-version recording **does not** establish bitwise-reproducible output. The complete speech-generation settings have not been verified as pinned in source control. The existing analyzed and final JSON artifacts have been matched, but their historical promotion command has not been recovered.
 
 Further limitations:
 
