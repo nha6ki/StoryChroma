@@ -109,25 +109,40 @@ experiments/ Local visualization experiments (not tracked)
 
 ## Data and Attribution
 
-Text source:
+### Literary work
 
-- Nankichi Niimi, Gongitsune
-- Aozora Bunko:\
-  [https://www.aozora.gr.jp/cards/000121/card628.html](https://www.aozora.gr.jp/cards/000121/card628.html)
+- Work: *Gongitsune* (ごん狐)
+- Author: Nankichi Niimi (新美南吉)
+- Source: [Aozora Bunko](https://www.aozora.gr.jp/cards/000121/card628.html)
+- Reference edition for orthography: *Nankichi Niimi Douwashuu*, Iwanami Bunko
+- Aozora Bunko notes that the edition used for the original transcription is unknown.
+- Text transcription: Yuji Hayashi (林裕司)
+- Proofreading: Satoshi Hamano (浜野智)
 
-Emotion model:
+The source text is a public-domain literary work in Japan.
+See the [Aozora Bunko usage guidelines](https://www.aozora.gr.jp/guide/kijyunn.html).
 
-\- [https://huggingface.co/patrickramos/bert-base-japanese-v2-wrime-fine-tune](https://huggingface.co/patrickramos/bert-base-japanese-v2-wrime-fine-tune)
+### Speech synthesis
 
-Speech synthesis:
+- Software: [VOICEVOX](https://voicevox.hiroshiba.jp/)
+- Voice: **VOICEVOX:ずんだもん**
+- Style: あまあま
+- Recorded engine version: 0.26.1
 
-- VOICEVOX ENGINE
-- Voice library: Zundamon
+Generated audio is subject to the applicable
+[VOICEVOX terms](https://voicevox.hiroshiba.jp/term/)
+and [Zundamon voice usage terms](https://zunko.jp/con_ongen_kiyaku.html).
 
-The text source, pretrained model, VOICEVOX software, and\
-voice library have separate attribution and licensing\
-requirements. These must be verified before public deployment\
-or redistribution.
+### Emotion model
+
+- Model: [patrickramos/bert-base-japanese-v2-wrime-fine-tune](https://huggingface.co/patrickramos/bert-base-japanese-v2-wrime-fine-tune)
+- Model publisher: patrickramos
+- Listed model license: CC BY-SA 3.0
+- Training dataset: WRIME
+
+The model was trained on annotated Japanese social media posts.
+Its predictions for literary sentences should not be interpreted
+as validated measurements of readers' emotional responses.
 
 ## Project Status
 

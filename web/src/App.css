@@ -175,3 +175,25 @@
 @media (prefers-reduced-motion: reduce) {
   .es-app *, .es-app *::before, .es-app *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+
+/* Attribution in the shared audiobook player */
+.es-player-credit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 14px;
+  row-gap: 2px;
+  padding: 0 12px 8px;
+  font-size: 10px;
+  line-height: 1.4;
+  text-align: center;
+  color: #647582;
+}
+
+.es-player-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

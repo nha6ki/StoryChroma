@@ -449,7 +449,7 @@ export default function App() {
                 </section>
               </div>
               <footer className="es-footer">
-                <p>朗読：{story.voice_name}（VOICEVOX） · <a href={story.source_url} target="_blank" rel="noreferrer">原文：青空文庫</a> · {story.source_credit}</p>
+                <p>朗読：VOICEVOX:ずんだもん（あまあま） · <a href={story.source_url} target="_blank" rel="noreferrer">原文：青空文庫</a> · {story.source_credit}</p>
                 <p>WRIME Reader側はSNS投稿の書き手感情について読み手が推測した強度に基づきます。物語の客観的な感情や鑑賞者自身の感情を測定したものではありません。色と配置はStoryChroma独自の可視化規則です。</p>
               </footer>
             </main>
@@ -471,6 +471,10 @@ export default function App() {
                 const next = Number(event.target.value); setSpeed(next);
                 if (audioRef.current) audioRef.current.playbackRate = next;
               }}>{[0.75, 1, 1.25, 1.5].map(n => <option key={n} value={n}>{n}×</option>)}</select></label>
+            </div>
+            <div className="es-player-credit" aria-label="作品と音声のクレジット">
+              <span>朗読：VOICEVOX:ずんだもん（あまあま）</span>
+              <a href={story.source_url} target="_blank" rel="noreferrer">原文：青空文庫</a>
             </div>
           </div>
         </>
