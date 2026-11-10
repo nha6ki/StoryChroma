@@ -111,6 +111,8 @@ experiments/ Local visualization experiments (not tracked)
 
 For the implementation details, mathematical definitions, and limitations, see the [Technical Design](docs/technical-design.md).
 
+For setup, artifact validation, and regeneration procedures, see the [Reproduction Guide](docs/reproduction.md).
+
 ## Data and Attribution
 
 ### Literary work
