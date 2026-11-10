@@ -39,7 +39,34 @@ Story JSON + narration.mp3
         Experience                 Analysis
 ```
 
-The inference script writes a *separate* `story.emotions.json` by default; it does not overwrite its input. The commands or manual steps used to promote that staged JSON into the final `story.json` are **not established by the inspected code excerpts** and should not be presented as an automated, reproducible stage without further verification.
+The inference script writes a separate JSON file rather than
+overwriting its input. Its input and output paths can be specified
+with `--input` and `--output`.
+
+### Verified full-length artifact relationship
+
+The following artifacts were compared:
+
+| Artifact | Path | Segments |
+|---|---|---:|
+| Narration-stage JSON | `data/processed/gongitsune_full/story.json` | 168 |
+| Emotion-analyzed JSON | `data/processed/gongitsune_full/story.emotions.json` | 168 |
+| Web application JSON | `web/public/stories/gongitsune/story.json` | 168 |
+
+The narration-stage and emotion-analyzed files have identical
+segment IDs, text, and timing data. The emotion-analyzed and web application files are byte-identical,
+as verified using `cmp`. They also have matching SHA-256 prefixes
+(`d797561c9a0f22ea`).
+
+The analyzed JSON therefore already contains the data required by
+the web application. No additional emotion-merging algorithm is
+needed. Promoting this artifact can be implemented as a validated
+file copy.
+
+The historical command used to place the final JSON in the web
+directory has not been recovered. The local intermediate artifacts
+are excluded from Git, so they are not available in a fresh clone.
+
 
 ### Main files
 
@@ -186,7 +213,7 @@ The heatmap, dominant track, and sentence bars should not be described as visual
 
 The repository includes the final audio and JSON, so running the existing browser experience needs Node.js and npm but **does not** require executing BERT or VOICEVOX locally.
 
-The generation pipeline requires additional components, including the pinned Python packages in `pipeline/requirements.txt`, FFmpeg, a running VOICEVOX ENGINE, and access to the text and model sources. The recorded local environment used Python 3.14.4, PyTorch 2.15.0, Transformers 5.22.2, FFmpeg 8.0.1, and VOICEVOX ENGINE 0.26.1. Package-version recording **does not** establish bitwise-reproducible output. In particular, the model repository revision, full speech-generation settings, and an explicit staged-JSON promotion step have not been verified as pinned in source control.
+The generation pipeline requires additional components, including the pinned Python packages in `pipeline/requirements.txt`, FFmpeg, a running VOICEVOX ENGINE, and access to the text and model sources. The recorded local environment used Python 3.14.4, PyTorch 2.15.0, Transformers 5.22.2, FFmpeg 8.0.1, and VOICEVOX ENGINE 0.26.1. Package-version recording **does not** establish bitwise-reproducible output. In particular, the model repository revision and complete speech-generation settings have not been verified as pinned in source control. The existing analyzed and final JSON artifacts have been matched, but their historical promotion command has not been recovered.
 
 Further limitations:
 
