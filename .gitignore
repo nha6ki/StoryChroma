@@ -14,3 +14,5 @@ dist/
 /web/src/*.before-wrime
 /web/public/stories/*/story.before-wrime.json
 /web/public/stories/*/story.emotions.json
+/backup-*/
+/experiments/

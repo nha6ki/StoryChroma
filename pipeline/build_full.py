@@ -29,7 +29,7 @@ from pathlib import Path
 
 import requests
 
-# Existing functions in the already verified EmotionSync MVP.
+# Existing functions in the already verified StoryChroma MVP.
 from build_mvp import (
     DEMO_COLORS,
     PROJECT_ROOT,
@@ -182,7 +182,7 @@ def merge_audio(paths: list[Path], segments: list[dict[str, str]], out_dir: Path
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description='EmotionSync: cached full narration of Gonkitsune')
+    parser = argparse.ArgumentParser(description='StoryChroma: cached full narration of Gonkitsune')
     parser.add_argument('--speaker', type=int, default=1, help='VOICEVOX speaker style ID')
     parser.add_argument('--limit', type=int, default=0,
                         help='only the first N sentences; 0 (default) means the complete text')

@@ -197,7 +197,7 @@ def build(speaker: int, limit: int) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="EmotionSync first synchronized demo")
+    parser = argparse.ArgumentParser(description="StoryChroma first synchronized demo")
     parser.add_argument("--speaker", type=int, default=1, help="VOICEVOX style ID from /speakers")
     parser.add_argument("--limit", type=int, default=8, help="number of sentences from the beginning (1-25)")
     args = parser.parse_args()

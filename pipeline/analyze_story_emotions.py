@@ -64,7 +64,7 @@ def get_color(reader_scores: dict[str, float]) -> tuple[str, str, float]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description='Estimate WRIME emotions for EmotionSync audiobook')
+    parser = argparse.ArgumentParser(description='Estimate WRIME emotions for StoryChroma audiobook')
     parser.add_argument('--input', type=Path, default=DEFAULT_INPUT)
     parser.add_argument('--output', type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()

@@ -1,0 +1,8 @@
+requests==2.34.2
+beautifulsoup4==4.15.0
+torch==2.15.0
+transformers==5.22.2
+tokenizers==0.23.3
+fugashi==1.5.2
+unidic-lite==1.0.8
+safetensors==0.8.0
