@@ -5,12 +5,14 @@ on:
     branches: [master]
     paths:
       - "web/**"
+      - "tests/**"
       - ".github/workflows/web-ci.yml"
 
   pull_request:
     branches: [master]
     paths:
       - "web/**"
+      - "tests/**"
       - ".github/workflows/web-ci.yml"
 
   workflow_dispatch:
@@ -46,3 +48,6 @@ jobs:
 
       - name: Lint
         run: npm run lint
+
+      - name: Validate story data
+        run: python3 -m unittest discover -s ../tests -p "test_*.py" -v
