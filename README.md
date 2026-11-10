@@ -107,6 +107,10 @@ data/        Local generated and intermediate files (not tracked)
 experiments/ Local visualization experiments (not tracked)
 ```
 
+## Technical Design
+
+For the implementation details, mathematical definitions, and limitations, see the [Technical Design](docs/technical-design.md).
+
 ## Data and Attribution
 
 ### Literary work
