@@ -1,4 +1,5 @@
 import json
+import subprocess
 import math
 import unittest
 from pathlib import Path
@@ -21,6 +22,45 @@ class TestStoryData(unittest.TestCase):
         self.assertEqual(audio, "narration.mp3")
         self.assertTrue((STORY_DIR / audio).is_file())
         self.assertGreater((STORY_DIR / audio).stat().st_size, 0)
+
+
+    def test_mp3_duration(self):
+        audio = STORY_DIR / self.story["audio_file"]
+
+        result = subprocess.run(
+            [
+                "ffprobe", "-v", "error",
+                "-show_entries", "format=duration",
+                "-of", "json",
+                str(audio),
+            ],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+
+        metadata = json.loads(result.stdout)
+        actual = float(metadata["format"]["duration"])
+        expected = float(self.story["duration_sec"])
+
+        self.assertTrue(math.isfinite(actual))
+        self.assertAlmostEqual(actual, expected, delta=0.1)
+
+    def test_mp3_decodes(self):
+        audio = STORY_DIR / self.story["audio_file"]
+
+        result = subprocess.run(
+            [
+                "ffmpeg", "-nostdin",
+                "-hide_banner", "-v", "error",
+                "-xerror", "-i", str(audio),
+                "-f", "null", "-",
+            ],
+            capture_output=True,
+            text=True,
+        )
+
+        self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_segment_count(self):
         self.assertEqual(len(self.story["segments"]), 168)
