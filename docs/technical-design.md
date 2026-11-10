@@ -230,6 +230,50 @@ Further limitations:
 5. The time series is interpolated between sentence-level estimates; intermediate color changes are visualization design decisions, not additional model predictions.
 6. Browser rendering performance and visual accessibility across devices have not been formally benchmarked.
 
+### Full-length emotion inference verification
+
+On November 10, 2026, the stored emotion predictions were
+independently recomputed for all 168 sentence segments.
+
+The verification used:
+
+- Model: `patrickramos/bert-base-japanese-v2-wrime-fine-tune`
+- Revision: `1f391822d6a11ccaacfff11f89935c387ffe7197`
+- Python: 3.14.4
+- PyTorch: 2.15.0+cu132
+- Transformers: 5.22.2
+- Tokenizers: 0.23.3
+- Safetensors: 0.8.0
+- Device: CPU
+- Model and tokenizer loaded from the local Hugging Face cache
+- Evaluation mode and `torch.inference_mode()`
+- Individual sentence inference with truncation enabled and
+  `max_length=256`
+
+Each sentence produced 16 regression outputs: eight Reader
+scores and eight Writer scores. Predictions were rounded to six
+decimal places, matching the original analysis implementation.
+
+**Verification results:**
+
+| Metric | Result |
+|---|---:|
+| Sentence segments | 168/168 |
+| Raw emotion scores matching | 2,688/2,688 |
+| Clipped display scores matching | 2,688/2,688 |
+| Maximum absolute difference | 0.000000 |
+| Mean absolute difference | 0.000000 |
+
+All stored scores were reproduced to their recorded six-decimal
+precision. The existing story JSON and MP3 were not modified.
+
+This provides strong evidence that the pinned model revision
+is consistent with the model used to generate the existing
+emotion data. However, the historical revision used during
+the original run was not independently recorded. This test
+also does not guarantee identical results across different
+software versions, hardware, or numerical backends.
+
 ## 10. Attribution
 
 The demo's literary text is *Gongitsune* by Nankichi Niimi, sourced from Aozora Bunko. Speech uses **VOICEVOX:ずんだもん** (あまあま). The model identifier is `patrickramos/bert-base-japanese-v2-wrime-fine-tune`. See the repository's [README](../README.md) for source links and attribution details. Licensing and redistribution requirements should be reviewed independently before public deployment.
