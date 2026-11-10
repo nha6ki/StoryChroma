@@ -89,6 +89,64 @@ The current story contains **168 sentence segments**, with a recorded duration o
 
 The sentence timings are derived from generated audio rather than assumed reading rates. However, an exact full-duration match alone does not demonstrate that every text boundary is perceptually aligned with the spoken sentence. No quantitative forced-alignment or speech-recognition evaluation is established here.
 
+### Verified audio concatenation and sentence timings
+
+The full-length narration artifacts were validated against the
+168 cached sentence-level WAV files.
+
+| Verification | Result |
+|---|---|
+| Cached WAV files | 168; no missing or duplicate segment IDs |
+| Audio format | Mono, 24 kHz, 16-bit PCM |
+| Total PCM frames | 22,382,592 |
+| Cached audio duration | 932.608 seconds |
+| Merged WAV duration | 932.608 seconds |
+| PCM sample comparison | All 168 clips match the merged WAV |
+| Sentence timestamp verification | All 168 segments passed |
+| Generated versus web MP3 | Byte-identical |
+
+The PCM data of each cached WAV was compared directly with the
+corresponding section of the merged `narration.wav`, in sentence
+order. No PCM differences were detected.
+
+The `start_sec` and `end_sec` fields of every segment were checked
+against cumulative PCM frame positions at 24,000 samples per second.
+All comparisons passed with an absolute tolerance of 1 microsecond.
+
+The generated and web application MP3 files were also confirmed
+byte-identical using `cmp`. Their SHA-256 digest is:
+
+`62b8b0ce6ad890ea194ba60b17842c2cef39ceb6815871bf66f6177dd66b6ade`
+
+These checks establish the consistency of the existing cached,
+merged, and deployed audio artifacts. They do not demonstrate
+that a new VOICEVOX synthesis run will reproduce identical PCM
+samples or that every spoken word is correctly pronounced.
+
+### Speech synthesis and cache configuration
+
+The full-length pipeline requests an AudioQuery from VOICEVOX
+using the speech text and speaker style ID, then submits the
+returned query to the synthesis endpoint without explicitly
+overriding its synthesis parameters.
+
+The recorded engine version is 0.26.1, with speaker style ID 1
+(Zundamon, Amaama).
+
+Each cached WAV filename includes the sentence index and the first
+20 hexadecimal characters of a SHA-256 digest calculated from
+the speech text, speaker style ID, and engine version.
+
+The AudioQuery content and complete synthesis environment were
+not preserved as part of the verified cache key. Consequently,
+exact regeneration of the original WAV samples has not been
+established.
+
+The MP3 encoding command specifies FFmpeg's `libmp3lame`
+encoder and a target bitrate of 96 kb/s. The currently observed
+FFmpeg version is 8.0.1-3ubuntu2; the historical encoding
+version has not been independently verified.
+
 ## 4. Emotion model and score processing
 
 ### Model and inputs
