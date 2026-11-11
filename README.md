@@ -2,17 +2,19 @@
 
 **An Interactive Audiobook with Text-Based Emotion Visualization**
 
-StoryChroma is a web application that synchronizes Japanese
-audiobook narration, text, and emotion-based color visualization.
+StoryChroma is an interactive Japanese audiobook that synchronizes narration, literary text, and dynamic color visualization based on model-estimated emotions.
 
-The current implementation uses *Gongitsune* (ごん狐), a short
-story by Nankichi Niimi, obtained from Aozora Bunko.
+The application currently features *Gongitsune* (ごん狐), a short story by Nankichi Niimi, with 168 text segments and approximately 15 minutes and 33 seconds of synthesized narration.
+
+Rather than assigning a single emotion to each sentence, StoryChroma visualizes eight emotion dimensions simultaneously, using spatial color blending and continuous transitions synchronized with playback.
+
+**[Live Demo](https://nha6ki.github.io/StoryChroma/)** · **[Project Page](https://nha6ki.github.io/projects/storychroma/)**
 
 ## Screenshots and Demo
 
 ### Experience
 
-An interactive audiobook interface with synchronized Japanese text and a continuously changing emotion-based color gradient.
+The Experience view combines synchronized narration, highlighted text, and a continuously changing emotion-based color gradient.
 
 <a href="docs/media/storychroma-experience.webp">
   <img src="docs/media/storychroma-experience.webp" alt="StoryChroma Experience interface" width="700">
@@ -20,7 +22,7 @@ An interactive audiobook interface with synchronized Japanese text and a continu
 
 ### Analysis
 
-An analysis interface featuring emotion scores, a full-story emotion heatmap, a dominant-emotion timeline, and spatial color visualization.
+The Analysis view provides sentence-level emotion estimates, a full-story heatmap, a dominant-emotion timeline, and an overview of the generated color visualization.
 
 <a href="docs/media/storychroma-analysis.webp">
   <img src="docs/media/storychroma-analysis.webp" alt="StoryChroma Analysis interface" width="420">
@@ -28,81 +30,109 @@ An analysis interface featuring emotion scores, a full-story emotion heatmap, a 
 
 ### Demo Video
 
-A short demonstration of StoryChroma's synchronized narration,
-dynamic color visualization, and interactive analysis.
+A short demonstration of the interactive audiobook and its dynamic visualization.
 
 https://github.com/user-attachments/assets/e83b916e-6668-41e1-b2f3-1a3faa199a1b
 
-
-
-Try the interactive application: [Live Demo](https://nha6ki.github.io/StoryChroma/).
-
 ## Features
 
-### Experience
+**Experience view**
+- Full-screen, emotion-based color visualization
+- Text highlighting synchronized with narration
+- Interactive sentence navigation
+- Audiobook playback and speed controls
 
-An immersive reading and listening interface featuring:
+**Analysis view**
+- Eight-dimensional emotion scores for the current sentence
+- Full-story emotion heatmap
+- Dominant-emotion timeline
+- Spatial color visualization
+- Complete story text with sentence-level seeking
 
-- Full-screen, emotion-driven color gradients
-- Lyrics-style, synchronized text presentation
-- Audiobook playback controls
+Both views share the same playback state, allowing users to switch between them without restarting the narration.
 
-### Analysis
+## How It Works
 
-An interface for exploring the model's emotion estimates:
+StoryChroma combines precomputed text analysis and synthesized narration with browser-based visualization.
 
-- Eight-dimensional emotion score bars
-- A full-story emotion heatmap
-- A dominant-emotion timeline
-- A multi-point color gradient
-- The complete text with sentence-level seeking
+1. **Text preparation:** The literary text is divided into sentence-level segments.
+2. **Emotion estimation:** A Japanese BERT model estimates eight emotion intensities for each segment.
+3. **Speech synthesis:** VOICEVOX ENGINE generates narration, and sentence timing is derived from the synthesized audio.
+4. **Color visualization:** The estimated emotions are mapped to a spatial color field and interpolated along the narration timeline.
+5. **Interactive playback:** The web application synchronizes the text, playback position, and color visualization.
 
-Both views share the same playback state.
+Emotion inference and speech synthesis are performed offline. The published web application uses precomputed JSON and MP3 files, so it does not require a backend inference server.
 
-## Emotion Analysis
+## Emotion Estimation and Visualization
 
-StoryChroma uses the pretrained model:
+### Emotion model
 
-`patrickramos/bert-base-japanese-v2-wrime-fine-tune`
+StoryChroma uses the Japanese BERT model:
 
-The application visualizes eight emotion dimensions based on
-the WRIME Reader-side predictions.
+[patrickramos/bert-base-japanese-v2-wrime-fine-tune](https://huggingface.co/patrickramos/bert-base-japanese-v2-wrime-fine-tune)
 
-These predictions represent model estimates based on textual
-input. They do not directly measure readers' emotional
-experiences or establish the emotional meaning of a story.
+The model was fine-tuned on WRIME, a Japanese dataset containing emotional intensity annotations for eight categories:
 
-Raw regression outputs are retained. Visualization scores
-are clipped to the 0–3 range without per-emotion percentile
-normalization.
+- Joy
+- Sadness
+- Anticipation
+- Surprise
+- Anger
+- Fear
+- Disgust
+- Trust
 
-## Current Content
+StoryChroma uses the model's **Reader-side predictions**, which estimate emotions that readers might attribute to the writer of a text. These predictions do not measure the emotions experienced by readers themselves.
 
-- Work: Gongitsune (ごん狐)
-- Author: Nankichi Niimi
-- Text source: Aozora Bunko
-- Segments: 168
-- Narration: approximately 15 minutes 33 seconds
-- Speech synthesis: VOICEVOX ENGINE
-- Voice: Zundamon, Amaama style
+Raw regression outputs are retained in the generated data. For visualization, values are clipped to the 0–3 range without per-emotion percentile normalization.
+
+### Color visualization
+
+Each emotion is associated with a fixed color and a position in a spatial layout.
+
+The visualization combines multiple emotion dimensions using Gaussian spatial weighting and OKLab color mixing. Emotion scores are interpolated between sentence midpoints to produce continuous color transitions during narration.
+
+This approach represents multiple estimated emotions in a single color field rather than selecting only the highest-scoring category.
+
+The color mapping is a visualization design choice, not a validated representation of how people perceive emotions.
+
+For implementation details and mathematical definitions, see the [Technical Design](docs/technical-design.md).
+
+## Included Story
+
+| Item | Details |
+|---|---|
+| Title | *Gongitsune* (ごん狐) |
+| Author | Nankichi Niimi (新美南吉) |
+| Text source | Aozora Bunko |
+| Text segments | 168 |
+| Narration duration | 932.608 seconds (approximately 15:33) |
+| Speech synthesis | VOICEVOX ENGINE |
+| Voice | VOICEVOX:ずんだもん（あまあま） |
+| Audio format | MP3 |
+
+The segment count reflects the text segmentation used in this implementation.
 
 ## Technology
 
-- React, TypeScript, Vite
+**Web application**
+- React and TypeScript
+- Vite
+- HTML Audio
+- Canvas 2D
+
+**Offline data preparation**
 - Python
-- PyTorch and Hugging Face Transformers
+- PyTorch
+- Hugging Face Transformers
 - VOICEVOX ENGINE
-- HTML Audio and Canvas 2D
+- FFmpeg
 
 ## Run Locally
 
-The repository includes generated narration and emotion data.
-Running the existing web application does not require
-regenerating them.
+The repository includes the generated narration audio and emotion data. Running the existing application does not require downloading the emotion model or regenerating these files.
 
-Requirements:
-
-- Node.js and npm
+**Requirements:** Node.js and npm.
 
 From the repository root:
 
@@ -112,78 +142,96 @@ npm ci
 npm run dev
 ```
 
-Open the local URL reported by Vite, normally:
+Open the local URL reported by Vite, typically `http://localhost:5173/`.
 
-[http://localhost:5173/StoryChroma/](http://localhost:5173/StoryChroma/)
+### Build and Lint
 
-## Build and Lint
+From the repository root:
 
-```
+```bash
 cd web
+npm ci
 npm run build
 npm run lint
 ```
 
 The production build is generated in `web/dist/`.
 
-## Project Structure
+### Artifact Validation
 
+The repository includes tests for the generated story data and narration audio.
+
+From the repository root:
+
+```bash
+python3 -m unittest discover -s tests -p "test_*.py" -v
 ```
-pipeline/    Python scripts for data preparation and inference
-web/src/     React application
-web/public/  Generated story data and audio
-data/        Local generated and intermediate files (not tracked)
-experiments/ Local visualization experiments (not tracked)
+
+FFmpeg and FFprobe are required for the audio validation tests.
+
+For environment requirements, validation procedures, and data regeneration, see the [Reproduction Guide](docs/reproduction.md).
+
+## Repository Structure
+
+```text
+pipeline/        Text preparation, emotion inference,
+                 and narration generation
+web/src/         React application
+web/public/      Generated story JSON and narration audio
+tests/           Artifact validation tests
+docs/            Technical and reproduction documentation
+docs/media/      Screenshots and demonstration video
+data/            Local intermediate files (not tracked)
+experiments/     Local visualization experiments (not tracked)
 ```
 
-## Technical Design
+## Limitations
 
-For the implementation details, mathematical definitions, and limitations, see the [Technical Design](docs/technical-design.md).
+StoryChroma is a working visualization prototype, not a validated method for assessing literary emotions or improving reading comprehension.
 
-For setup, artifact validation, and regeneration procedures, see the [Reproduction Guide](docs/reproduction.md).
+The emotion model was trained on Japanese social media text, and its performance on literary sentences has not been independently validated in this project.
 
-## Data and Attribution
+The predictions should not be interpreted as the author's actual emotional state or as the emotions experienced by an audience.
 
-The original project source code is released under the [MIT License](LICENSE). See [Third-Party Notices](THIRD_PARTY_NOTICES.md) for the attribution and usage conditions of third-party materials and generated artifacts.
+The color assignments and visualization have not been evaluated through a user study. No claims are made about their effects on comprehension, emotional engagement, or interpretation.
 
-### Literary work
+## Data, Attribution, and Licensing
 
-- Work: *Gongitsune* (ごん狐)
-- Author: Nankichi Niimi (新美南吉)
-- Source: [Aozora Bunko](https://www.aozora.gr.jp/cards/000121/card628.html)
-- Reference edition for orthography: *Nankichi Niimi Douwashuu*, Iwanami Bunko
-- Aozora Bunko notes that the edition used for the original transcription is unknown.
-- Text transcription: Yuji Hayashi (林裕司)
-- Proofreading: Satoshi Hamano (浜野智)
+### Literary text
 
-The source text is a public-domain literary work in Japan.
+- **Work:** *Gongitsune* (ごん狐)
+- **Author:** Nankichi Niimi (新美南吉)
+- **Source:** [Aozora Bunko](https://www.aozora.gr.jp/cards/000121/card628.html)
+- **Source edition:** *Nankichi Niimi Douwashuu* (新美南吉童話集), Iwanami Bunko
+- **Text transcription:** Yuji Hayashi (林裕司)
+- **Proofreading:** Satoshi Hamano (浜野智)
+
+The literary work is in the public domain in Japan. The electronic text is credited to Aozora Bunko and its contributors.
+
 See the [Aozora Bunko usage guidelines](https://www.aozora.gr.jp/guide/kijyunn.html).
 
-### Speech synthesis
+### Narration
 
-- Software: [VOICEVOX](https://voicevox.hiroshiba.jp/)
-- Voice: **VOICEVOX:ずんだもん**
-- Style: あまあま
-- Recorded engine version: 0.26.1
+- **Software:** [VOICEVOX](https://voicevox.hiroshiba.jp/)
+- **Voice:** VOICEVOX:ずんだもん
+- **Style:** あまあま
+- **Recorded engine version:** 0.26.1
 
-Generated audio is subject to the applicable
-[VOICEVOX terms](https://voicevox.hiroshiba.jp/term/)
-and [Zundamon voice usage terms](https://zunko.jp/con_ongen_kiyaku.html).
+The generated narration is subject to the applicable [VOICEVOX terms](https://voicevox.hiroshiba.jp/term/) and [Zundamon voice usage terms](https://zunko.jp/con_ongen_kiyaku.html).
 
-### Emotion model
+### Emotion model and dataset
 
-- Model: [patrickramos/bert-base-japanese-v2-wrime-fine-tune](https://huggingface.co/patrickramos/bert-base-japanese-v2-wrime-fine-tune)
-- Model publisher: patrickramos
-- Listed model license: CC BY-SA 3.0
-- Training dataset: WRIME
+- **Model:** [patrickramos/bert-base-japanese-v2-wrime-fine-tune](https://huggingface.co/patrickramos/bert-base-japanese-v2-wrime-fine-tune)
+- **Model publisher:** patrickramos
+- **Listed model license:** CC BY-SA 3.0
+- **Training dataset:** [WRIME](https://github.com/ids-cv/wrime)
 
-The model was trained on annotated Japanese social media posts.
-Its predictions for literary sentences should not be interpreted
-as validated measurements of readers' emotional responses.
+The model and its training dataset have licensing terms distinct from those of this project's source code.
 
-## Project Status
+### Source code license
 
-Local development version.
+The original source code in this repository is released under the [MIT License](LICENSE).
 
-The source repository and web application have not yet\
-been publicly released.\
+This license does not supersede the rights or licensing terms associated with the literary text, synthesized voice, pretrained model, or third-party materials.
+
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for additional attribution and licensing information.
