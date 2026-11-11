@@ -85,7 +85,7 @@ npm run dev
 
 Open the local URL reported by Vite, normally:
 
-[http://localhost:5173/](http://localhost:5173/)
+[http://localhost:5173/StoryChroma/](http://localhost:5173/StoryChroma/)
 
 ## Build and Lint
 

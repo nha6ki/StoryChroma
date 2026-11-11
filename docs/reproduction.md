@@ -27,7 +27,7 @@ npm run dev
 ```
 
 Open the URL reported by Vite, usually
-`http://localhost:5173/`.
+`http://localhost:5173/StoryChroma/`.
 
 For a production build and static analysis:
 
