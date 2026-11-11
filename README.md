@@ -28,7 +28,12 @@ An analysis interface featuring emotion scores, a full-story emotion heatmap, a 
 
 ### Demo Video
 
-[Watch the StoryChroma demo (MP4)](docs/media/storychroma-demo.mp4)
+A short demonstration of StoryChroma's synchronized narration,
+dynamic color visualization, and interactive analysis.
+
+https://github.com/user-attachments/assets/e83b916e-6668-41e1-b2f3-1a3faa199a1b
+
+
 
 Try the interactive application: [Live Demo](https://nha6ki.github.io/StoryChroma/).
 
