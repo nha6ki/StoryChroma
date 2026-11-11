@@ -115,6 +115,8 @@ For setup, artifact validation, and regeneration procedures, see the [Reproducti
 
 ## Data and Attribution
 
+The original project source code is released under the [MIT License](LICENSE). See [Third-Party Notices](THIRD_PARTY_NOTICES.md) for the attribution and usage conditions of third-party materials and generated artifacts.
+
 ### Literary work
 
 - Work: *Gongitsune* (ごん狐)
