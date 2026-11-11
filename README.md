@@ -8,6 +8,30 @@ audiobook narration, text, and emotion-based color visualization.
 The current implementation uses *Gongitsune* (ごん狐), a short
 story by Nankichi Niimi, obtained from Aozora Bunko.
 
+## Screenshots and Demo
+
+### Experience
+
+An interactive audiobook interface with synchronized Japanese text and a continuously changing emotion-based color gradient.
+
+<a href="docs/media/storychroma-experience.webp">
+  <img src="docs/media/storychroma-experience.webp" alt="StoryChroma Experience interface" width="700">
+</a>
+
+### Analysis
+
+An analysis interface featuring emotion scores, a full-story emotion heatmap, a dominant-emotion timeline, and spatial color visualization.
+
+<a href="docs/media/storychroma-analysis.webp">
+  <img src="docs/media/storychroma-analysis.webp" alt="StoryChroma Analysis interface" width="420">
+</a>
+
+### Demo Video
+
+[Watch the StoryChroma demo (MP4)](docs/media/storychroma-demo.mp4)
+
+Try the interactive application: [Live Demo](https://nha6ki.github.io/StoryChroma/).
+
 ## Features
 
 ### Experience
